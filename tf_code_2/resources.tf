@@ -24,8 +24,8 @@ resource "aws_internet_gateway" "cmtr-f1ae3864-igw" {
 }
 
 resource "aws_subnet" "cmtr-f1ae3864-public-subnet" {
-  vpc_id     = aws_vpc.cmtr-f1ae3864-vpc.id
-  cidr_block = var.public_subnet_cidr
+  vpc_id            = aws_vpc.cmtr-f1ae3864-vpc.id
+  cidr_block        = var.public_subnet_cidr
 
   tags = {
     Name = local.public_subnet_name
@@ -33,8 +33,8 @@ resource "aws_subnet" "cmtr-f1ae3864-public-subnet" {
 }
 
 resource "aws_subnet" "cmtr-f1ae3864-private-subnet" {
-  vpc_id     = aws_vpc.cmtr-f1ae3864-vpc.id
-  cidr_block = var.private_subnet_cidr
+  vpc_id            = aws_vpc.cmtr-f1ae3864-vpc.id
+  cidr_block        = var.private_subnet_cidr
 
   tags = {
     Name = local.private_subnet_name
