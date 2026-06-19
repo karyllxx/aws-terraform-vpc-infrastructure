@@ -1,4 +1,4 @@
-output "vpc_id" {
-  value       = aws_vpc.vpc.id
-  description = "The ID of the deployed VPC infrastructure"
+output "policy_arn" {
+  value       = aws_iam_policy.custom_policy.arn
+  description = "The ARN of the moved IAM policy"
 }

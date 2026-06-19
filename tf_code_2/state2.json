@@ -1,0 +1,342 @@
+{
+  "version": 4,
+  "terraform_version": "1.15.6",
+  "serial": 11,
+  "lineage": "6a6a19a1-370f-ef83-c8fa-5cee4d1ca244",
+  "outputs": {
+    "vpc_id": {
+      "value": "vpc-04dbfe2b4d3fadaa6",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_iam_policy",
+      "name": "custom_policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::739275460231:policy/resource-move-demo-policy",
+            "attachment_count": 0,
+            "delay_after_policy_creation_in_ms": null,
+            "description": "Custom role with limited permissions",
+            "id": "arn:aws:iam::739275460231:policy/resource-move-demo-policy",
+            "name": "resource-move-demo-policy",
+            "name_prefix": "",
+            "path": "/",
+            "policy": "{\"Statement\":[{\"Action\":[\"ec2:*\",\"s3:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
+            "policy_id": "ANPA2YICAJ2DRWG76JKIW",
+            "tags": null,
+            "tags_all": {}
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_internet_gateway",
+      "name": "cmtr-f1ae3864-igw",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:739275460231:internet-gateway/igw-04ad5aff55ca4f489",
+            "id": "igw-04ad5aff55ca4f489",
+            "owner_id": "739275460231",
+            "tags": {
+              "Name": "cmtr-f1ae3864-igw"
+            },
+            "tags_all": {
+              "Name": "cmtr-f1ae3864-igw"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-04dbfe2b4d3fadaa6"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_vpc.cmtr-f1ae3864-vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "cmtr-f1ae3864-private-rt",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:739275460231:route-table/rtb-0252021b5eb325ba0",
+            "id": "rtb-0252021b5eb325ba0",
+            "owner_id": "739275460231",
+            "propagating_vgws": [],
+            "route": [],
+            "tags": {
+              "Name": "cmtr-f1ae3864-private-rt"
+            },
+            "tags_all": {
+              "Name": "cmtr-f1ae3864-private-rt"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-04dbfe2b4d3fadaa6"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_vpc.cmtr-f1ae3864-vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "cmtr-f1ae3864-public-rt",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:739275460231:route-table/rtb-0bea47361f8d0b8b2",
+            "id": "rtb-0bea47361f8d0b8b2",
+            "owner_id": "739275460231",
+            "propagating_vgws": [],
+            "route": [
+              {
+                "carrier_gateway_id": "",
+                "cidr_block": "0.0.0.0/0",
+                "core_network_arn": "",
+                "destination_prefix_list_id": "",
+                "egress_only_gateway_id": "",
+                "gateway_id": "igw-04ad5aff55ca4f489",
+                "ipv6_cidr_block": "",
+                "local_gateway_id": "",
+                "nat_gateway_id": "",
+                "network_interface_id": "",
+                "transit_gateway_id": "",
+                "vpc_endpoint_id": "",
+                "vpc_peering_connection_id": ""
+              }
+            ],
+            "tags": {
+              "Name": "cmtr-f1ae3864-public-rt"
+            },
+            "tags_all": {
+              "Name": "cmtr-f1ae3864-public-rt"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-04dbfe2b4d3fadaa6"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_internet_gateway.cmtr-f1ae3864-igw",
+            "aws_vpc.cmtr-f1ae3864-vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-0bded432404c26daa",
+            "route_table_id": "rtb-0252021b5eb325ba0",
+            "subnet_id": "subnet-07cfc3dd4f086e3a4",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_route_table.cmtr-f1ae3864-private-rt",
+            "aws_subnet.cmtr-f1ae3864-private-subnet",
+            "aws_vpc.cmtr-f1ae3864-vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "public",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-0d085381fbd9b8403",
+            "route_table_id": "rtb-0bea47361f8d0b8b2",
+            "subnet_id": "subnet-0de8cbde4eac6e721",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_internet_gateway.cmtr-f1ae3864-igw",
+            "aws_route_table.cmtr-f1ae3864-public-rt",
+            "aws_subnet.cmtr-f1ae3864-public-subnet",
+            "aws_vpc.cmtr-f1ae3864-vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "cmtr-f1ae3864-private-subnet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:739275460231:subnet/subnet-07cfc3dd4f086e3a4",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "us-east-1a",
+            "availability_zone_id": "use1-az1",
+            "cidr_block": "10.0.2.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_lni_at_device_index": 0,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-07cfc3dd4f086e3a4",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "739275460231",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Name": "cmtr-f1ae3864-private-subnet"
+            },
+            "tags_all": {
+              "Name": "cmtr-f1ae3864-private-subnet"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-04dbfe2b4d3fadaa6"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "aws_vpc.cmtr-f1ae3864-vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "cmtr-f1ae3864-public-subnet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:739275460231:subnet/subnet-0de8cbde4eac6e721",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "us-east-1a",
+            "availability_zone_id": "use1-az1",
+            "cidr_block": "10.0.1.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_lni_at_device_index": 0,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-0de8cbde4eac6e721",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "739275460231",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Name": "cmtr-f1ae3864-public-subnet"
+            },
+            "tags_all": {
+              "Name": "cmtr-f1ae3864-public-subnet"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-04dbfe2b4d3fadaa6"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "aws_vpc.cmtr-f1ae3864-vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_vpc",
+      "name": "cmtr-f1ae3864-vpc",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:739275460231:vpc/vpc-04dbfe2b4d3fadaa6",
+            "assign_generated_ipv6_cidr_block": false,
+            "cidr_block": "10.0.0.0/16",
+            "default_network_acl_id": "acl-03ef025d2168e153e",
+            "default_route_table_id": "rtb-0701550e2eee28904",
+            "default_security_group_id": "sg-06266d2da7a6939a8",
+            "dhcp_options_id": "dopt-08dba706bd5c54e0f",
+            "enable_dns_hostnames": false,
+            "enable_dns_support": true,
+            "enable_network_address_usage_metrics": false,
+            "id": "vpc-04dbfe2b4d3fadaa6",
+            "instance_tenancy": "default",
+            "ipv4_ipam_pool_id": null,
+            "ipv4_netmask_length": null,
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_network_border_group": "",
+            "ipv6_ipam_pool_id": "",
+            "ipv6_netmask_length": 0,
+            "main_route_table_id": "rtb-0701550e2eee28904",
+            "owner_id": "739275460231",
+            "tags": {
+              "Name": "cmtr-f1ae3864-vpc"
+            },
+            "tags_all": {
+              "Name": "cmtr-f1ae3864-vpc"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
